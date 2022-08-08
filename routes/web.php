@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostsController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,3 +48,21 @@ Route::get('post/{id}', [PostsController::class, 'showPost']);
 //
 //    return 'Url is ' . $url;
 //}));
+
+///// DB Raw SQL Queries
+///
+//Route::get('/insert', function () {
+//    DB::insert('insert into posts(title, content, is_admin) values(?, ?, 0)', ['PHP with Laravel', 'Laravel bla bla bla']);
+//});
+
+//Route::get('/read', function () {
+//    return DB::select('select * from posts where id = ?', [1]);
+//});
+//
+//Route::get('/update', function () {
+//   return DB::update('update posts set title = "Updated Title" where id = ?', [1]);
+//});
+
+Route::get('/delete', function () {
+    return DB::delete('delete from posts where id = ?', [1]);
+});
