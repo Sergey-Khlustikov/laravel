@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\PostsController;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +62,6 @@ Route::get('post/{id}', [PostsController::class, 'showPost']);
 //   return DB::update('update posts set title = "Updated Title" where id = ?', [1]);
 //});
 
-Route::get('/delete', function () {
-    return DB::delete('delete from posts where id = ?', [1]);
-});
+//Route::get('/delete', function () {
+//    return DB::delete('delete from posts where id = ?', [1]);
+//});
