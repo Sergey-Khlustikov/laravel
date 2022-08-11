@@ -1,7 +1,7 @@
 <?php
 
+use App\Country;
 use App\Http\Controllers\PostsController;
-use App\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -115,13 +115,14 @@ Route::get('/insert', function () {
 //    $post->save();
 //});
 
-Route::get('/create', function () {
-    Post::create([
-        'title' => 'The create method',
-        'content' => 'The created method content',
-        'is_admin' => 0,
-    ]);
-});
+//Route::get('/create', function () {
+//    Post::create([
+//        'title' => 'The create method',
+//        'content' => 'The created method content',
+//        'is_admin' => 0,
+//        'user_id' => 1,
+//    ]);
+//});
 
 
 //Route::get('/update', function () {
@@ -162,3 +163,42 @@ Route::get('/create', function () {
 //Route::get('/forceDelete', function () {
 //    Post::withTrashed()->where('id', 5)->forceDelete();
 //});
+
+
+/////////// Relationships
+
+///// One to One
+//Route::get('/user/{id}/post', function ($id) {
+//    return User::find($id)->post;
+//});
+//
+//Route::get('/post/{id}/user', function ($id) {
+//    return Post::find($id)->user;
+//});
+
+///// One to Many
+//Route::get('/user/{id}/posts', function ($id) {
+//    return User::find($id)->posts;
+//});
+
+
+///// Many to Many
+//Route::get('/user/{id}/role', function ($id) {
+//    return User::find($id)->roles;
+//});
+//// get pivot table
+//Route::get('/user/pivot', function () {
+//    $user = User::find(1);
+//
+//    foreach ($user->roles as $role) {
+//        echo $role->pivot;
+//    }
+//});
+
+Route::get('/user/{id}/country', function ($id) {
+    $country = Country::find(1);
+
+    foreach ($country->posts as $post) {
+        echo $post->title;
+    }
+});

@@ -17,5 +17,10 @@ class Post extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
-    protected $fillable = ['title', 'content', 'is_admin'];
+    protected $fillable = ['title', 'content', 'is_admin', 'user_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
