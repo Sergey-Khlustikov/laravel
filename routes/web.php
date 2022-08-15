@@ -1,7 +1,10 @@
 <?php
 
-use App\Country;
 use App\Http\Controllers\PostsController;
+use App\Photo;
+use App\Post;
+use App\Tag;
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -120,7 +123,6 @@ Route::get('/insert', function () {
 //        'title' => 'The create method',
 //        'content' => 'The created method content',
 //        'is_admin' => 0,
-//        'user_id' => 1,
 //    ]);
 //});
 
@@ -195,10 +197,37 @@ Route::get('/insert', function () {
 //    }
 //});
 
-Route::get('/user/{id}/country', function ($id) {
-    $country = Country::find(1);
+//Route::get('/user/{id}/country', function ($id) {
+//    $country = Country::find(1);
+//
+//    foreach ($country->posts as $post) {
+//        echo $post->title;
+//    }
+//});
 
-    foreach ($country->posts as $post) {
-        echo $post->title;
-    }
+//// One to one POLYMORPHIC
+// user -> photo
+Route::get('/user/{id}/photo', function ($id) {
+    return User::find($id)->photos;
+});
+
+// post -> photo
+Route::get('/post/{id}/photo', function ($id) {
+    return Post::find($id)->photos;
+});
+
+
+// (inverse) photo -> post/user
+Route::get('photo/{id}/owner', function ($id) {
+    return Photo::findOrFail($id)->imageable;
+});
+
+
+/// Many to Many POLYMORPHIC
+Route::get('post/{id}/tags', function ($id) {
+    return Post::find($id)->tags;
+});
+// Inverse
+Route::get('tags/{id}/posts', function ($id) {
+    return Tag::find($id)->posts;
 });
