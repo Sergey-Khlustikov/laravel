@@ -1,5 +1,5 @@
 <?php return array (
-  'providers' => 
+  'providers' =>
   array (
     0 => 'Illuminate\\Auth\\AuthServiceProvider',
     1 => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
@@ -17,24 +17,25 @@
     13 => 'Illuminate\\Pagination\\PaginationServiceProvider',
     14 => 'Illuminate\\Pipeline\\PipelineServiceProvider',
     15 => 'Illuminate\\Queue\\QueueServiceProvider',
-    16 => 'Illuminate\\Redis\\RedisServiceProvider',
-    17 => 'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider',
-    18 => 'Illuminate\\Session\\SessionServiceProvider',
-    19 => 'Illuminate\\Translation\\TranslationServiceProvider',
-    20 => 'Illuminate\\Validation\\ValidationServiceProvider',
-    21 => 'Illuminate\\View\\ViewServiceProvider',
-    22 => 'Facade\\Ignition\\IgnitionServiceProvider',
-    23 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
-    24 => 'Fruitcake\\Cors\\CorsServiceProvider',
-    25 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    26 => 'Carbon\\Laravel\\ServiceProvider',
-    27 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    28 => 'App\\Providers\\AppServiceProvider',
-    29 => 'App\\Providers\\AuthServiceProvider',
-    30 => 'App\\Providers\\EventServiceProvider',
-    31 => 'App\\Providers\\RouteServiceProvider',
+      16 => 'Illuminate\\Redis\\RedisServiceProvider',
+      17 => 'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider',
+      18 => 'Illuminate\\Session\\SessionServiceProvider',
+      19 => 'Illuminate\\Translation\\TranslationServiceProvider',
+      20 => 'Illuminate\\Validation\\ValidationServiceProvider',
+      21 => 'Illuminate\\View\\ViewServiceProvider',
+      22 => 'Facade\\Ignition\\IgnitionServiceProvider',
+      23 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
+      24 => 'Fruitcake\\Cors\\CorsServiceProvider',
+      25 => 'Laravel\\Tinker\\TinkerServiceProvider',
+      26 => 'Collective\\Html\\HtmlServiceProvider',
+      27 => 'Carbon\\Laravel\\ServiceProvider',
+      28 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+      29 => 'App\\Providers\\AppServiceProvider',
+      30 => 'App\\Providers\\AuthServiceProvider',
+      31 => 'App\\Providers\\EventServiceProvider',
+      32 => 'App\\Providers\\RouteServiceProvider',
   ),
-  'eager' => 
+  'eager' =>
   array (
     0 => 'Illuminate\\Auth\\AuthServiceProvider',
     1 => 'Illuminate\\Cookie\\CookieServiceProvider',
@@ -56,7 +57,7 @@
     17 => 'App\\Providers\\EventServiceProvider',
     18 => 'App\\Providers\\RouteServiceProvider',
   ),
-  'deferred' => 
+  'deferred' =>
   array (
     'Illuminate\\Broadcasting\\BroadcastManager' => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
     'Illuminate\\Contracts\\Broadcasting\\Factory' => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
@@ -154,57 +155,59 @@
     'queue.worker' => 'Illuminate\\Queue\\QueueServiceProvider',
     'queue.listener' => 'Illuminate\\Queue\\QueueServiceProvider',
     'queue.failer' => 'Illuminate\\Queue\\QueueServiceProvider',
-    'queue.connection' => 'Illuminate\\Queue\\QueueServiceProvider',
-    'redis' => 'Illuminate\\Redis\\RedisServiceProvider',
-    'redis.connection' => 'Illuminate\\Redis\\RedisServiceProvider',
-    'auth.password' => 'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider',
-    'auth.password.broker' => 'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider',
-    'translator' => 'Illuminate\\Translation\\TranslationServiceProvider',
-    'translation.loader' => 'Illuminate\\Translation\\TranslationServiceProvider',
-    'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
-    'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
-    'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
+      'queue.connection' => 'Illuminate\\Queue\\QueueServiceProvider',
+      'redis' => 'Illuminate\\Redis\\RedisServiceProvider',
+      'redis.connection' => 'Illuminate\\Redis\\RedisServiceProvider',
+      'auth.password' => 'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider',
+      'auth.password.broker' => 'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider',
+      'translator' => 'Illuminate\\Translation\\TranslationServiceProvider',
+      'translation.loader' => 'Illuminate\\Translation\\TranslationServiceProvider',
+      'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
+      'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
+      'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
+      'html' => 'Collective\\Html\\HtmlServiceProvider',
+      'form' => 'Collective\\Html\\HtmlServiceProvider',
+      'Collective\\Html\\HtmlBuilder' => 'Collective\\Html\\HtmlServiceProvider',
+      'Collective\\Html\\FormBuilder' => 'Collective\\Html\\HtmlServiceProvider',
   ),
-  'when' => 
+  'when' =>
   array (
-    'Illuminate\\Broadcasting\\BroadcastServiceProvider' => 
+    'Illuminate\\Broadcasting\\BroadcastServiceProvider' =>
     array (
     ),
-    'Illuminate\\Bus\\BusServiceProvider' => 
+    'Illuminate\\Bus\\BusServiceProvider' =>
     array (
     ),
-    'Illuminate\\Cache\\CacheServiceProvider' => 
+    'Illuminate\\Cache\\CacheServiceProvider' =>
     array (
     ),
-    'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider' => 
+    'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider' =>
     array (
     ),
-    'Illuminate\\Hashing\\HashServiceProvider' => 
+    'Illuminate\\Hashing\\HashServiceProvider' =>
     array (
     ),
-    'Illuminate\\Mail\\MailServiceProvider' => 
+    'Illuminate\\Mail\\MailServiceProvider' =>
     array (
     ),
-    'Illuminate\\Pipeline\\PipelineServiceProvider' => 
+    'Illuminate\\Pipeline\\PipelineServiceProvider' =>
     array (
     ),
-    'Illuminate\\Queue\\QueueServiceProvider' => 
+    'Illuminate\\Queue\\QueueServiceProvider' =>
     array (
     ),
-    'Illuminate\\Redis\\RedisServiceProvider' => 
+    'Illuminate\\Redis\\RedisServiceProvider' =>
     array (
     ),
-    'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider' => 
-    array (
-    ),
-    'Illuminate\\Translation\\TranslationServiceProvider' => 
-    array (
-    ),
-    'Illuminate\\Validation\\ValidationServiceProvider' => 
-    array (
-    ),
-    'Laravel\\Tinker\\TinkerServiceProvider' => 
-    array (
-    ),
+    'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider' =>
+        array(),
+      'Illuminate\\Translation\\TranslationServiceProvider' =>
+          array(),
+      'Illuminate\\Validation\\ValidationServiceProvider' =>
+          array(),
+      'Laravel\\Tinker\\TinkerServiceProvider' =>
+          array(),
+      'Collective\\Html\\HtmlServiceProvider' =>
+          array(),
   ),
 );

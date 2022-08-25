@@ -1,10 +1,5 @@
 <?php
 
-use App\Http\Controllers\PostsController;
-use App\Photo;
-use App\Post;
-use App\Tag;
-use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/contact', [PostsController::class, 'contact']);
-
-Route::resource('posts', 'PostsController');
-
-Route::get('post/{id}', [PostsController::class, 'showPost']);
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//
+//Route::get('/contact', [PostsController::class, 'contact']);
+//
+//Route::resource('posts', 'PostsController');
+//
+//Route::get('post/{id}', [PostsController::class, 'showPost']);
 
 //Route::get('/posts', [PostsController::class, 'index']);
 //Route::get('/posts/{id}', [PostsController::class, 'show']);
@@ -54,9 +49,9 @@ Route::get('post/{id}', [PostsController::class, 'showPost']);
 
 ///// DB Raw SQL Queries
 ///
-Route::get('/insert', function () {
+//Route::get('/insert', function () {
 //    DB::insert('insert into posts(title, content, is_admin) values(?, ?, 0)', ['New post', 'Laravel bla bla bla']);
-});
+//});
 
 //Route::get('/read', function () {
 //    return DB::select('select * from posts where id = ?', [1]);
@@ -205,29 +200,35 @@ Route::get('/insert', function () {
 //    }
 //});
 
-//// One to one POLYMORPHIC
-// user -> photo
-Route::get('/user/{id}/photo', function ($id) {
-    return User::find($id)->photos;
-});
+////// One to one POLYMORPHIC
+//// user -> photo
+//Route::get('/user/{id}/photo', function ($id) {
+//    return User::find($id)->photos;
+//});
+//
+//// post -> photo
+//Route::get('/post/{id}/photo', function ($id) {
+//    return Post::find($id)->photos;
+//});
+//
+//
+//// (inverse) photo -> post/user
+//Route::get('photo/{id}/owner', function ($id) {
+//    return Photo::findOrFail($id)->imageable;
+//});
+//
+//
+///// Many to Many POLYMORPHIC
+//Route::get('post/{id}/tags', function ($id) {
+//    return Post::find($id)->tags;
+//});
+//// Inverse
+//Route::get('tags/{id}/posts', function ($id) {
+//    return Tag::find($id)->posts;
+//});
 
-// post -> photo
-Route::get('/post/{id}/photo', function ($id) {
-    return Post::find($id)->photos;
-});
+//////////////////////////////////////////////////////////
 
-
-// (inverse) photo -> post/user
-Route::get('photo/{id}/owner', function ($id) {
-    return Photo::findOrFail($id)->imageable;
-});
-
-
-/// Many to Many POLYMORPHIC
-Route::get('post/{id}/tags', function ($id) {
-    return Post::find($id)->tags;
-});
-// Inverse
-Route::get('tags/{id}/posts', function ($id) {
-    return Tag::find($id)->posts;
+Route::group(['middleware' => 'web'], function () {
+    Route::resource('/posts', 'PostsController');
 });
