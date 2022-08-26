@@ -10,7 +10,7 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::list();
 
         return view('posts.index', compact('posts'));
     }
@@ -27,10 +27,16 @@ class PostsController extends Controller
 //            'content' => 'required',
 //        ]);
 
-        Post::create([
-            'title' => $request->get('title'),
-            'content' => $request->get('content'),
-        ]);
+        $input = $request->all();
+
+        if ($file = $request->file('file')) {
+            $name = $file->getClientOriginalName();
+            $file->move('images', $name);
+
+            $input['path'] = $name;
+        }
+
+        Post::create($input);
 
         return redirect('/posts');
     }
@@ -53,8 +59,16 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::findOrFail($id);
+        $input = $request->all();
 
-        $post->update($request->all());
+        if ($file = $request->file('file')) {
+            $name = $file->getClientOriginalName();
+            $file->move('images', $name);
+
+            $input['path'] = $name;
+        }
+
+        $post->update($input);
 
         return redirect('/posts');
     }

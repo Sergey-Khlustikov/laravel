@@ -17,7 +17,9 @@ class Post extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
-    protected $fillable = ['title', 'content', 'is_admin', 'user_id'];
+    protected $fillable = ['title', 'content', 'is_admin', 'user_id', 'path'];
+
+    public $images_path = '/images/';
 
     public function user()
     {
@@ -32,5 +34,19 @@ class Post extends Model
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    public static function scopeList($query)
+    {
+        return $query->orderBy('id', 'desc')->get();
+    }
+
+    public function getPathAttribute($value)
+    {
+        if (!$value) {
+            return null;
+        }
+
+        return $this->images_path . $value;
     }
 }
